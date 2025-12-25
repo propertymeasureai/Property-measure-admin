@@ -122,7 +122,7 @@ function verifyAndLoad(user) {
                             let obj = {
                                 id: sno,
                                 owner: `${currentData.FIRSTNAME} ${currentData.LASTNAME}`,
-                                area: dataOfOrders.totalAreaBoundaryMeasurement.acres,
+                                area: dataOfOrders.totalAreaBoundaryMeasurement?.acres || 'N/A',
                                 location: dataOfOrders.searchlocation,
                                 submitted: dataOfOrders.timestamp.split("T")[0],
                                 status: dataOfOrders.status,
