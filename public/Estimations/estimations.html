@@ -12,6 +12,21 @@
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <script src="../firebase.js"></script>
+  <script>
+    // Handle back button navigation
+    window.addEventListener('popstate', function(event) {
+      window.location.href = '../admin.html';
+    });
+    
+    // Override any back button clicks
+    document.addEventListener('click', function(event) {
+      const target = event.target.closest('button, a');
+      if (target && (target.textContent.toLowerCase().includes('back') || target.getAttribute('aria-label')?.toLowerCase().includes('back'))) {
+        event.preventDefault();
+        window.location.href = '../admin.html';
+      }
+    }, true);
+  </script>
   <script type="module" crossorigin src="assets/index-CtNAB-9A.js"></script>
   <link rel="stylesheet" crossorigin href="assets/index-v_lD5cFh.css">
 </head>
