@@ -168,9 +168,10 @@ document.getElementById("logout").addEventListener("click", function () {
 function editProperty(e, id) {
     const postDataPathRef = e.getAttribute("data-edit-url");
     console.log(`Editing property ${id}`);
-    alert(`Editing property ${id}`);
-    document.cookie = `reference=${postDataPathRef};`;
-    window.location.href = "/Aerial/aerialpage.html";
+    showCustomAlert(`Editing property with Serial No. ${id}`, () => {
+        document.cookie = `reference=${postDataPathRef};`;
+        window.location.href = "/Aerial/aerialpage.html";
+    });
 }
 
 function rejectProperty(id) {

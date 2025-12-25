@@ -1,3 +1,5 @@
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyChv7GrjKKo8Z8qoKySRS-EB5_ewTb0mLg",
     authDomain: "propertymeasure-12320.firebaseapp.com",
@@ -11,3 +13,5 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+window.apiDb = firebase;
