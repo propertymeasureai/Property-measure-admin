@@ -182,6 +182,15 @@ function rejectProperty(id) {
     alert(`Rejecting property ${id}`);
 }
 
+function navigateToEstimations(e, id) {
+    const postDataPathRef = e.getAttribute("data-edit-url");
+    console.log(`Navigating to estimations for property ${id}`);
+    showCustomAlert(`Opening estimations for property with Serial No. ${id}`, () => {
+        document.cookie = `reference=${postDataPathRef};`;
+        window.location.href = "/Estimations/estimations.html";
+    });
+}
+
 
 document.getElementById("viewConstruction").addEventListener("click", function () {
     window.location.href = "constructionpage.html";
