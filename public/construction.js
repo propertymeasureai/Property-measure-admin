@@ -71,7 +71,9 @@ function renderTableRows(data) {
                 <button class="btn btn-edit" onclick="editProperty(this, '${property.id}')" data-edit-url="${property.reference}" >
                    ${property.status.toLowerCase() == "completed" ? "Update" : "Edit"}
                 </button>
-                 
+                <button class="btn btn-edit" onclick="navigateToEstimations(this,'${property.id}')" data-edit-url="${property.reference}"  >
+                    Estimations
+                </button>
             </td>
         </tr>
         `;
@@ -146,10 +148,17 @@ document.getElementById("logout").addEventListener("click", function () {
 function editProperty(e, id) {
     const postDataPathRef = e.getAttribute("data-edit-url");
     console.log(`Editing property ${id}`);
-    showCustomAlert(`Editing property with Serial No. ${id}`, () => {
-        document.cookie = `reference=${postDataPathRef};`;
-        window.location.href = "/Construction/cadEditor.html";
-    });
+    alert(`Editing property ${id}`);
+    document.cookie = `reference=${postDataPathRef};`;
+    window.location.href = "/Construction/cadEditor.html";
+}
+function navigateToEstimations(e, id) {
+    const postDataPathRef = e.getAttribute("data-edit-url");
+    console.log(`Editing property ${id}`);
+    console.log(`Editing property ${postDataPathRef}`);
+    alert(`Editing property ${id}`);
+    document.cookie = `reference=${postDataPathRef};`;
+    window.location.href = "/Estimations/estimations.html";
 }
 
 function rejectProperty(id) {

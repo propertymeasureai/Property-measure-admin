@@ -82,6 +82,9 @@ function renderTableRows(data) {
                 <button class="btn btn-edit" onclick="editProperty(this, '${property.id}')" data-edit-url="${property.reference}"  >
                      ${property.status.toLowerCase() == "completed" ? "Update" : "Edit"}
                 </button>
+                <button class="btn btn-edit" onclick="navigateToEstimations(this,'${property.id}')" data-edit-url="${property.reference}"  >
+                    Estimations
+                </button>
                 
             </td>
         </tr>
