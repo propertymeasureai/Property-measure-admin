@@ -68,11 +68,16 @@ function renderTableRows(data) {
             <td>${property.submitted}</td>
             <td><span class="status status-${property.status.toLowerCase()}">${property.status.toUpperCase()}</span></td>
             <td class="action-buttons">
-                <button class="btn btn-edit" onclick="editProperty(this, '${property.id}')" data-edit-url="${property.reference}" >
-                   ${property.status.toLowerCase() == "completed" ? "Update" : "Edit"}
+                <button class="btn btn-edit" onclick="editProperty(this, '${property.id}')" data-edit-url="${property.reference}">
+                    ${property.status.toLowerCase() === "completed" ? "Update" : "Edit"}
                 </button>
-                <button class="btn btn-edit" onclick="navigateToEstimations(this,'${property.id}')" data-edit-url="${property.reference}"  >
-                    Estimations
+
+                <button class="btn btn-edit" onclick="navigateToEstimations(this,'${property.id}')" data-edit-url="${property.reference}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="white" viewBox="-32 0 512 512">
+                        <g id="_48_Calculator" data-name="48 Calculator" transform="translate(-32)">
+                        <path d="M448,0H64A31.981,31.981,0,0,0,32,32V480a31.981,31.981,0,0,0,32,32H448a31.981,31.981,0,0,0,32-32V32A31.981,31.981,0,0,0,448,0ZM160,448H96V384h64Zm0-96H96V288h64Zm0-96H96V192h64ZM288,448H224V384h64Zm0-96H224V288h64Zm0-96H224V192h64ZM416,448H352V384h64Zm0-96H352V288h64Zm0-96H352V192h64Zm0-128H96V64H416Z" fill="white"/>
+                        </g>
+                    </svg>
                 </button>
             </td>
         </tr>
