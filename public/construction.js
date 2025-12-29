@@ -8,9 +8,9 @@ firebase.auth().onAuthStateChanged((user) => {
             if (condition) {
                 verifyAndLoad(user);
             } else {
-                alert("Please login via Admin Credentials!");
-                alert("You Are Not Authorized to this page");
-                window.location.assign('index.html');
+                showErrorAlert("You Are Not Authorized to this page! Please login via Admin Credentials.", () => {
+                    window.location.assign('index.html');
+                });
             }
         });
     } else {
@@ -148,22 +148,24 @@ document.getElementById("logout").addEventListener("click", function () {
 function editProperty(e, id) {
     const postDataPathRef = e.getAttribute("data-edit-url");
     console.log(`Editing property ${id}`);
-    alert(`Editing property ${id}`);
-    document.cookie = `reference=${postDataPathRef};`;
-    window.location.href = "/Construction/cadEditor.html";
+    showCustomAlert(`Editing property with Serial No. ${id}`, () => {
+        document.cookie = `reference=${postDataPathRef};`;
+        window.location.href = "/Construction/cadEditor.html";
+    });
 }
 function navigateToEstimations(e, id) {
     const postDataPathRef = e.getAttribute("data-edit-url");
     console.log(`Editing property ${id}`);
     console.log(`Editing property ${postDataPathRef}`);
-    alert(`Editing property ${id}`);
-    document.cookie = `reference=${postDataPathRef};`;
-    window.location.href = "/Estimations/estimations.html";
+    showCustomAlert(`Opening estimations for property with Serial No. ${id}`, () => {
+        document.cookie = `reference=${postDataPathRef};`;
+        window.location.href = "/Estimations/estimations.html";
+    });
 }
 
 function rejectProperty(id) {
     console.log(`Rejecting property ${id}`);
-    alert(`Rejecting property ${id}`);
+    showCustomAlert(`Rejecting property ${id}`);
 }
 
 
